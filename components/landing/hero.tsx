@@ -8,7 +8,7 @@ export function Hero() {
   return (
     <section className="piatto-texture relative overflow-hidden px-5 pb-14 pt-10 sm:px-8 lg:px-10 lg:pb-24 lg:pt-16">
       <div className="pointer-events-none absolute right-0 top-0 h-full w-1/2 bg-[linear-gradient(135deg,transparent,rgba(217,108,59,0.08)_42%,rgba(85,98,59,0.08))]" aria-hidden="true" />
-      <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[minmax(0,1.08fr)_minmax(21rem,25rem)] lg:items-center">
+      <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-[minmax(0,1.08fr)_minmax(21rem,25rem)] lg:items-center lg:gap-20">
         <div className="relative z-10">
           <p className="inline-flex items-center gap-2 rounded-full border border-piatto-terracotta/25 bg-white/78 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-piatto-terracotta shadow-sm backdrop-blur">
             <Sparkles className="size-3.5" aria-hidden="true" />
@@ -36,7 +36,7 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="relative">
+        <div className="relative pt-2 lg:pt-0">
           <div className="absolute -left-4 top-10 hidden h-[74%] w-16 -rotate-3 rounded-[1.25rem] bg-piatto-cream/70 lg:block" aria-hidden="true" />
           <AppMockup />
         </div>

@@ -1,6 +1,17 @@
 import { ArrowLeft, Heart, Home, MapPin, Search, Star, UserRound, Utensils } from "lucide-react";
 
-const schnitzelDishes = [
+type Dish = {
+  name: string;
+  detail: string;
+  restaurant: string;
+  rating: string;
+  votes: string;
+  time: string;
+  price: string;
+  image: string;
+};
+
+const schnitzelDishes: Dish[] = [
   {
     name: "Schnitzel mit Gurkensalat",
     detail: "Gurke, Zitrone, Preiselbeeren",
@@ -48,150 +59,172 @@ const feedDishes = schnitzelDishes.slice(1);
 
 export function AppMockup() {
   return (
-    <div className="relative mx-auto w-full max-w-[21.75rem]" aria-label="Piatto App Vorschau mit Schnitzel Feed">
-      <div className="absolute -left-8 top-16 hidden h-44 w-28 -rotate-6 rounded-[1.4rem] border border-piatto-line bg-white/68 shadow-piatto md:block" />
-      <div className="absolute -right-7 bottom-20 hidden h-36 w-28 rotate-6 rounded-[1.4rem] border border-[#b85230]/30 bg-piatto-terracotta/90 shadow-piatto md:block" />
-      <div className="absolute inset-x-5 bottom-2 h-20 rounded-full bg-piatto-terracotta/18 blur-3xl" aria-hidden="true" />
+    <div className="relative isolate mx-auto w-full max-w-[21.5rem] pt-3" aria-label="Piatto App Vorschau mit Schnitzel Feed">
+      <MockupDecor />
+      <PhoneFrame>
+        <AppScreen />
+      </PhoneFrame>
+    </div>
+  );
+}
 
-      <div className="relative aspect-[780/1634] rounded-[3rem] border border-[#25251d] bg-[#151611] p-[0.5rem] shadow-[0_34px_90px_rgba(52,38,24,0.34),inset_0_0_0_1px_rgba(255,255,255,0.09)]">
-        <div className="absolute -left-1 top-28 h-16 w-1 rounded-l-full bg-[#2a2b23]" aria-hidden="true" />
-        <div className="absolute -right-1 top-40 h-24 w-1 rounded-r-full bg-[#2a2b23]" aria-hidden="true" />
-        <div className="pointer-events-none absolute left-1/2 top-4 z-20 h-7 w-28 -translate-x-1/2 rounded-full bg-[#11120f] shadow-[inset_0_1px_2px_rgba(255,255,255,0.1)]" aria-hidden="true" />
+function MockupDecor() {
+  return (
+    <div className="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
+      <div className="absolute -left-8 top-20 hidden h-40 w-24 -rotate-6 rounded-[1.25rem] border border-piatto-line bg-white/62 shadow-piatto md:block" />
+      <div className="absolute -right-7 bottom-24 hidden h-32 w-24 rotate-6 rounded-[1.25rem] border border-[#b85230]/25 bg-piatto-terracotta/82 shadow-piatto md:block" />
+      <div className="absolute inset-x-5 bottom-2 h-20 rounded-full bg-piatto-terracotta/16 blur-3xl" />
+    </div>
+  );
+}
 
-        <div className="flex h-full flex-col overflow-hidden rounded-[2.45rem] bg-[#fffaf3]">
-          <div className="relative shrink-0 border-b border-piatto-line/70 bg-[#fffaf3] px-4 pb-3 pt-[3.25rem]">
-            <div className="absolute inset-0 bg-[linear-gradient(138deg,rgba(217,108,59,0.12),transparent_36%),linear-gradient(180deg,rgba(255,255,255,0.72),transparent)]" aria-hidden="true" />
-            <div className="relative flex items-center justify-between gap-3">
-              <div>
-                <p className="text-[0.66rem] font-semibold uppercase tracking-[0.2em] text-piatto-terracotta">PIATTO</p>
-                <p className="mt-1 text-xl font-semibold tracking-[-0.01em] text-piatto-ink">Gerichte entdecken</p>
-              </div>
-              <span className="inline-flex items-center gap-1 rounded-full border border-piatto-line bg-white/86 px-2.5 py-1 text-[0.72rem] font-semibold text-piatto-olive shadow-sm">
-                <MapPin className="size-3.5" aria-hidden="true" />
-                Mainz
-              </span>
+function PhoneFrame({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="relative z-10 aspect-[430/932] rounded-[3.15rem] border border-[#24251f] bg-[#12130f] p-[0.56rem] shadow-[0_34px_90px_rgba(52,38,24,0.32),inset_0_0_0_1px_rgba(255,255,255,0.08)]">
+      <div className="absolute -left-1 top-28 z-0 h-16 w-1 rounded-l-full bg-[#2a2b23]" aria-hidden="true" />
+      <div className="absolute -right-1 top-40 z-0 h-24 w-1 rounded-r-full bg-[#2a2b23]" aria-hidden="true" />
+      <div className="pointer-events-none absolute left-1/2 top-[1.02rem] z-30 h-6 w-28 -translate-x-1/2 rounded-full bg-[#11120f] shadow-[inset_0_1px_2px_rgba(255,255,255,0.1)]" aria-hidden="true" />
+      <div className="relative z-10 h-full overflow-hidden rounded-[2.58rem] bg-[#fffaf3]">{children}</div>
+    </div>
+  );
+}
+
+function AppScreen() {
+  return (
+    <div className="relative flex h-full flex-col overflow-hidden bg-[#fffaf3]">
+      <div className="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(145deg,rgba(217,108,59,0.13),transparent_34%),linear-gradient(180deg,rgba(255,255,255,0.8),rgba(245,233,218,0.22))]" aria-hidden="true" />
+      <AppHeader />
+      <main className="relative z-10 min-h-0 flex-1 overflow-hidden px-4 pb-[5.4rem] pt-3">
+        <FeaturedDishCard dish={featuredDish} />
+        <div className="mt-2.5 flex items-center justify-between">
+          <p className="text-sm font-semibold text-[#1F1F1A]">Weitere Gerichte</p>
+          <p className="text-[0.66rem] font-semibold uppercase text-[#D96C3B]">Dish-first</p>
+        </div>
+        <div className="mt-2 space-y-2">
+          {feedDishes.map((dish, index) => (
+            <DishListCard key={dish.name} dish={dish} active={index === 0} />
+          ))}
+        </div>
+      </main>
+      <PiattoTabBar />
+    </div>
+  );
+}
+
+function AppHeader() {
+  return (
+    <header className="relative z-10 shrink-0 border-b border-[#E6D7C5]/70 bg-[#fffaf3]/88 px-4 pb-3 pt-[3.05rem] backdrop-blur">
+      <div className="flex items-center justify-between gap-3">
+        <div className="min-w-0">
+          <p className="text-[0.64rem] font-semibold uppercase text-[#D96C3B]">PIATTO</p>
+          <p className="mt-1 truncate text-[1.18rem] font-semibold text-[#1F1F1A]">Gerichte entdecken</p>
+        </div>
+        <span className="inline-flex shrink-0 items-center gap-1 rounded-full border border-[#E6D7C5] bg-white/88 px-2.5 py-1 text-[0.7rem] font-semibold text-[#55623B] shadow-sm">
+          <MapPin className="size-3.5" aria-hidden="true" />
+          Mainz
+        </span>
+      </div>
+      <div className="mt-3 flex items-center gap-2 rounded-full border border-[#E6D7C5] bg-white/92 px-3 py-2.5 text-sm font-medium text-[#6F6A5F] shadow-sm">
+        <Search className="size-4 shrink-0 text-[#55623B]" aria-hidden="true" />
+        <span>Schnitzel</span>
+      </div>
+    </header>
+  );
+}
+
+function FeaturedDishCard({ dish }: { dish: Dish }) {
+  return (
+    <article className="overflow-hidden rounded-[1.45rem] border border-[#E6D7C5] bg-[#fffaf3] shadow-[0_16px_32px_rgba(65,51,35,0.11)]">
+      <div className="relative h-[6.9rem] overflow-hidden bg-[#F5E9DA]">
+        <img src={dish.image} alt="" className="h-full w-full object-cover object-center" loading="eager" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(38,28,18,0.05),rgba(38,28,18,0.18))]" aria-hidden="true" />
+        <button className="absolute left-3 top-3 flex size-8 items-center justify-center rounded-full bg-[#fffaf3]/94 text-[#55623B] shadow-[0_8px_18px_rgba(44,34,23,0.16)]" aria-label="Zurueck">
+          <ArrowLeft className="size-4 stroke-[2.3]" aria-hidden="true" />
+        </button>
+        <button className="absolute right-3 top-3 flex size-8 items-center justify-center rounded-full bg-[#fffaf3]/94 text-[#55623B] shadow-[0_8px_18px_rgba(44,34,23,0.16)]" aria-label="Favorit speichern">
+          <Heart className="size-4 stroke-[2.2]" aria-hidden="true" />
+        </button>
+      </div>
+      <div className="relative -mt-4 rounded-t-[1.35rem] border-t border-[#f0e2d5] bg-[#fffaf3] px-3.5 pb-3 pt-3 shadow-[0_-7px_16px_rgba(65,51,35,0.06)]">
+        <h2 className="overflow-hidden text-[1.02rem] font-semibold leading-tight text-[#55623B] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2]">{dish.name}</h2>
+        <div className="mt-1.5 flex min-w-0 items-center gap-1.5 text-[0.68rem] font-medium text-[#6F6A5F]">
+          <Utensils className="size-3.5 shrink-0 text-[#D96C3B]" aria-hidden="true" />
+          <span className="truncate">{dish.restaurant}</span>
+          <span aria-hidden="true">•</span>
+          <span>Mainz</span>
+        </div>
+        <div className="mt-2.5 flex items-center justify-between gap-2">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-[#f3eadf] px-2.5 py-1 text-[0.7rem] font-semibold text-[#6F6A5F]">
+            <Star className="size-3.5 fill-[#D96C3B] text-[#D96C3B]" aria-hidden="true" />
+            {dish.rating}
+            <span className="h-3 w-px bg-[#d7c7b8]" aria-hidden="true" />
+            {dish.votes}
+          </span>
+          <span className="shrink-0 text-base font-semibold text-[#D96C3B]">{dish.price}</span>
+        </div>
+      </div>
+    </article>
+  );
+}
+
+function DishListCard({ dish, active }: { dish: Dish; active: boolean }) {
+  return (
+    <article className={["h-[4.7rem] rounded-[1rem] border bg-white/94 p-2 shadow-[0_9px_22px_rgba(65,51,35,0.07)]", active ? "border-[#D96C3B]/78" : "border-[#E6D7C5]"].join(" ")}>
+      <div className="grid h-full grid-cols-[4.35rem_minmax(0,1fr)] gap-2.5">
+        <div className="relative h-full overflow-hidden rounded-[0.78rem] bg-[#F5E9DA]">
+          <img src={dish.image} alt="" className="h-full w-full object-cover object-center" loading="lazy" />
+        </div>
+        <div className="grid min-w-0 grid-rows-[auto_1fr_auto] py-0.5">
+          <div className="flex min-w-0 items-start justify-between gap-2">
+            <div className="min-w-0">
+              <h3 className="overflow-hidden text-[0.82rem] font-semibold leading-tight text-[#1F1F1A] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:1]">{dish.name}</h3>
+              <p className="mt-0.5 truncate text-[0.64rem] font-medium text-[#6F6A5F]">
+                {dish.restaurant}
+                <span className="ml-1 inline-flex size-2.5 items-center justify-center rounded-full bg-[#D96C3B] align-[-0.08rem] text-[0.42rem] font-bold text-white">✓</span>
+              </p>
             </div>
-            <div className="relative mt-3 flex items-center gap-2 rounded-full border border-piatto-line bg-white/88 px-3 py-2.5 text-sm font-medium text-piatto-muted shadow-sm">
-              <Search className="size-4 text-piatto-olive" aria-hidden="true" />
-              Schnitzel
-            </div>
+            <Heart className={["mt-0.5 size-3.5 shrink-0", active ? "fill-[#D96C3B] text-[#D96C3B]" : "text-[#1F1F1A]"].join(" ")} aria-hidden="true" />
           </div>
-
-          <div className="flex min-h-0 flex-1 flex-col px-4 pb-3 pt-3">
-            <article className="overflow-hidden rounded-[1.55rem] border border-[#e0cdbc] bg-[#fffaf3] shadow-[0_18px_38px_rgba(65,51,35,0.13)]">
-              <div className="relative h-[8.65rem] overflow-hidden bg-piatto-cream">
-                <img src={featuredDish.image} alt="" className="h-full w-full object-cover" loading="eager" />
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(38,28,18,0.08),rgba(38,28,18,0.28))]" aria-hidden="true" />
-                <button className="absolute left-3 top-3 flex size-9 items-center justify-center rounded-full bg-[#fffaf3]/94 text-piatto-olive shadow-[0_8px_18px_rgba(44,34,23,0.18)]" aria-label="Zurueck">
-                  <ArrowLeft className="size-4.5 stroke-[2.3]" aria-hidden="true" />
-                </button>
-                <button className="absolute right-3 top-3 flex size-9 items-center justify-center rounded-full bg-[#fffaf3]/94 text-piatto-olive shadow-[0_8px_18px_rgba(44,34,23,0.18)]" aria-label="Favorit speichern">
-                  <Heart className="size-4.5 stroke-[2.2]" aria-hidden="true" />
-                </button>
-              </div>
-              <div className="relative -mt-5 rounded-t-[1.45rem] border-t border-[#f0e2d5] bg-[#fffaf3] px-3.5 pb-3.5 pt-3.5 shadow-[0_-8px_20px_rgba(65,51,35,0.08)]">
-                <h2 className="truncate text-[1.18rem] font-semibold leading-tight text-piatto-olive">{featuredDish.name}</h2>
-                <div className="mt-1.5 flex min-w-0 items-center gap-1.5 text-[0.72rem] font-medium text-piatto-muted">
-                  <Utensils className="size-3.5 shrink-0 text-piatto-terracotta" aria-hidden="true" />
-                  <span className="truncate">Piatto Beta</span>
-                  <span aria-hidden="true">•</span>
-                  <span>Mainz</span>
-                </div>
-                <div className="mt-3 flex items-center justify-between gap-2">
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-[#f3eadf] px-2.5 py-1.5 text-[0.72rem] font-semibold text-piatto-muted">
-                    <Star className="size-3.5 fill-piatto-terracotta text-piatto-terracotta" aria-hidden="true" />
-                    {featuredDish.rating}
-                    <span className="h-3 w-px bg-[#d7c7b8]" aria-hidden="true" />
-                    128
-                  </span>
-                  <span className="text-lg font-semibold tracking-[-0.01em] text-piatto-terracotta">{featuredDish.price}</span>
-                </div>
-              </div>
-            </article>
-
-            <div className="mt-3 flex items-center justify-between">
-              <p className="text-sm font-semibold text-piatto-ink">Weitere Gerichte</p>
-              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-piatto-terracotta">Dish-first</p>
-            </div>
-
-            <div className="mt-2.5 space-y-2">
-              {feedDishes.map((dish, index) => (
-                <article
-                  key={dish.name}
-                  className={[
-                    "rounded-[1.05rem] border bg-white/94 p-2 shadow-[0_10px_24px_rgba(65,51,35,0.08)]",
-                    index === 0 ? "border-piatto-terracotta/80" : "border-piatto-line",
-                  ].join(" ")}
-                >
-                  <div className="grid grid-cols-[4.9rem_1fr] gap-2.5">
-                    <div className="relative h-[4.85rem] overflow-hidden rounded-[0.82rem] bg-piatto-cream">
-                      <img src={dish.image} alt="" className="h-full w-full object-cover" loading="lazy" />
-                    </div>
-                    <div className="min-w-0 py-0.5">
-                      <div className="flex items-start justify-between gap-2">
-                        <div className="min-w-0">
-                          <h3 className="truncate text-[0.93rem] font-semibold leading-tight text-piatto-ink">{dish.name}</h3>
-                          <p className="mt-1 truncate text-[0.72rem] font-medium text-piatto-muted">
-                            {dish.restaurant}
-                            <span className="ml-1 inline-flex size-3 items-center justify-center rounded-full bg-piatto-terracotta align-[-0.08rem] text-[0.48rem] font-bold text-white">✓</span>
-                          </p>
-                        </div>
-                        <Heart className={["mt-0.5 size-4 shrink-0", index === 0 ? "fill-piatto-terracotta text-piatto-terracotta" : "text-piatto-ink"].join(" ")} aria-hidden="true" />
-                      </div>
-                      <div className="mt-2 flex items-center justify-between gap-1.5 text-[0.68rem] font-semibold">
-                        <span className={["inline-flex items-center gap-1 rounded-[0.55rem] px-2 py-1", index === 0 ? "bg-piatto-terracotta text-white" : "bg-[#f3eadf] text-piatto-olive"].join(" ")}>
-                          <Star className={["size-3 fill-current", index === 0 ? "text-white" : "text-piatto-olive"].join(" ")} aria-hidden="true" />
-                          {dish.rating}
-                        </span>
-                        <span className="truncate text-piatto-muted">({dish.votes}) · {dish.time}</span>
-                        <span className="shrink-0 text-[0.82rem] font-semibold text-piatto-terracotta">{dish.price}</span>
-                      </div>
-                    </div>
-                  </div>
-                </article>
-              ))}
-            </div>
-
-            <PiattoTabBar />
+          <p className="min-w-0 truncate self-center text-[0.58rem] font-medium text-[#6F6A5F]">{dish.detail}</p>
+          <div className="flex min-w-0 items-center justify-between gap-1.5 text-[0.6rem] font-semibold">
+            <span className={["inline-flex shrink-0 items-center gap-1 rounded-[0.5rem] px-1.5 py-0.5", active ? "bg-[#D96C3B] text-white" : "bg-[#f3eadf] text-[#55623B]"].join(" ")}>
+              <Star className="size-2.5 fill-current" aria-hidden="true" />
+              {dish.rating}
+            </span>
+            <span className="min-w-0 truncate text-[#6F6A5F]">({dish.votes}) · {dish.time}</span>
+            <span className="shrink-0 text-[0.72rem] font-semibold text-[#D96C3B]">{dish.price}</span>
           </div>
         </div>
       </div>
-    </div>
+    </article>
   );
 }
 
 function PiattoTabBar() {
   return (
-    <nav aria-label="Piatto App Navigation" className="relative mt-auto pt-4">
-      <div className="grid grid-cols-[1fr_1fr_3.85rem_1fr_1fr] items-center rounded-[1.2rem] border border-[#ead9ca] bg-[#fffaf3]/97 px-2.5 py-2 text-center shadow-[0_12px_28px_rgba(65,51,35,0.12),inset_0_1px_0_rgba(255,255,255,0.9)] backdrop-blur">
-        <span className="flex min-w-0 flex-col items-center gap-0.5 rounded-xl px-1 py-1 text-[0.5rem] font-semibold leading-none text-piatto-ink">
-          <Home className="size-3.5 stroke-[2.15]" aria-hidden="true" />
-          Home
-        </span>
-
-        <span className="flex min-w-0 flex-col items-center gap-0.5 rounded-xl bg-[#f7dfd1] px-2 py-1 text-[0.5rem] font-semibold leading-none text-piatto-terracotta" aria-current="page">
-          <Search className="size-3.5 stroke-[2.2]" aria-hidden="true" />
-          Suche
-        </span>
-
+    <nav aria-label="Piatto App Navigation" className="absolute inset-x-3 bottom-3 z-20">
+      <div className="grid grid-cols-[1fr_1fr_3.85rem_1fr_1fr] items-center rounded-[1.2rem] border border-[#E6D7C5] bg-[#fffaf3]/97 px-2.5 py-2 text-center shadow-[0_12px_28px_rgba(65,51,35,0.13),inset_0_1px_0_rgba(255,255,255,0.9)] backdrop-blur">
+        <TabItem icon={Home} label="Home" />
+        <TabItem icon={Search} label="Suche" active />
         <span className="relative flex min-w-0 justify-center self-stretch">
-          <span className="absolute left-1/2 top-1/2 flex size-[3.65rem] -translate-x-1/2 -translate-y-[63%] items-center justify-center rounded-full bg-[#fffaf3] shadow-[0_9px_20px_rgba(65,51,35,0.12)] ring-[4px] ring-[#fffaf3]">
-            <PiattoPlateMark className="size-[3.45rem]" />
+          <span className="absolute left-1/2 top-1/2 flex size-[3.55rem] -translate-x-1/2 -translate-y-[63%] items-center justify-center rounded-full bg-[#fffaf3] shadow-[0_9px_20px_rgba(65,51,35,0.12)] ring-[4px] ring-[#fffaf3]">
+            <PiattoPlateMark className="size-[3.35rem]" />
           </span>
           <span className="sr-only">Piatto Feed</span>
         </span>
-
-        <span className="flex min-w-0 flex-col items-center gap-0.5 rounded-xl px-1 py-1 text-[0.5rem] font-semibold leading-none text-piatto-ink">
-          <Heart className="size-3.5 stroke-[2.15]" aria-hidden="true" />
-          Favoriten
-        </span>
-
-        <span className="flex min-w-0 flex-col items-center gap-0.5 rounded-xl px-1 py-1 text-[0.5rem] font-semibold leading-none text-piatto-ink">
-          <UserRound className="size-3.5 stroke-[2.15]" aria-hidden="true" />
-          Profil
-        </span>
+        <TabItem icon={Heart} label="Favoriten" />
+        <TabItem icon={UserRound} label="Profil" />
       </div>
     </nav>
+  );
+}
+
+function TabItem({ icon: Icon, label, active = false }: { icon: typeof Home; label: string; active?: boolean }) {
+  return (
+    <span className={["flex min-w-0 flex-col items-center gap-0.5 rounded-xl px-1 py-1 text-[0.5rem] font-semibold leading-none", active ? "bg-[#f7dfd1] text-[#D96C3B]" : "text-[#1F1F1A]"].join(" ")} aria-current={active ? "page" : undefined}>
+      <Icon className="size-3.5 stroke-[2.15]" aria-hidden="true" />
+      {label}
+    </span>
   );
 }
 
