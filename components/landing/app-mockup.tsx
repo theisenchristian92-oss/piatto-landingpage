@@ -129,37 +129,35 @@ export function AppMockup() {
 }
 
 function PiattoTabBar() {
-  const tabs = [
-    { label: "Home", icon: Home },
-    { label: "Suche", icon: Search },
-    { label: "Favoriten", icon: Heart },
-    { label: "Profil", icon: UserRound },
-  ];
-
   return (
-    <nav aria-label="Piatto App Navigation" className="relative mt-auto pt-5">
-      <div className="grid grid-cols-[1fr_1fr_4rem_1fr_1fr] items-end rounded-[1.35rem] border border-[#ead9ca] bg-[#fffaf3]/96 px-2.5 pb-2 pt-2.5 text-center shadow-[0_14px_34px_rgba(65,51,35,0.13),inset_0_1px_0_rgba(255,255,255,0.88)] backdrop-blur">
-        {tabs.slice(0, 2).map(({ label, icon: Icon }) => (
-          <span key={label} className="flex min-w-0 flex-col items-center gap-1 rounded-2xl px-1 py-1 text-[0.53rem] font-semibold leading-none text-piatto-ink">
-            <Icon className="size-3.5 stroke-[2.1]" aria-hidden="true" />
-            {label}
-          </span>
-        ))}
+    <nav aria-label="Piatto App Navigation" className="relative mt-auto pt-4">
+      <div className="grid grid-cols-[1fr_1fr_3.85rem_1fr_1fr] items-center rounded-[1.2rem] border border-[#ead9ca] bg-[#fffaf3]/97 px-2.5 py-2 text-center shadow-[0_12px_28px_rgba(65,51,35,0.12),inset_0_1px_0_rgba(255,255,255,0.9)] backdrop-blur">
+        <span className="flex min-w-0 flex-col items-center gap-0.5 rounded-xl px-1 py-1 text-[0.5rem] font-semibold leading-none text-piatto-ink">
+          <Home className="size-3.5 stroke-[2.15]" aria-hidden="true" />
+          Home
+        </span>
 
-        <span className="relative flex min-w-0 justify-center">
-          <span className="absolute left-1/2 top-1/2 flex size-[3.95rem] -translate-x-1/2 -translate-y-[68%] items-center justify-center rounded-full bg-[#fffaf3] shadow-[0_13px_26px_rgba(65,51,35,0.18)] ring-[5px] ring-[#fffaf3]">
-            <PiattoPlateMark className="size-[3.55rem]" />
+        <span className="flex min-w-0 flex-col items-center gap-0.5 rounded-xl bg-[#f7dfd1] px-2 py-1 text-[0.5rem] font-semibold leading-none text-piatto-terracotta" aria-current="page">
+          <Search className="size-3.5 stroke-[2.2]" aria-hidden="true" />
+          Suche
+        </span>
+
+        <span className="relative flex min-w-0 justify-center self-stretch">
+          <span className="absolute left-1/2 top-1/2 flex size-[3.65rem] -translate-x-1/2 -translate-y-[63%] items-center justify-center rounded-full bg-[#fffaf3] shadow-[0_9px_20px_rgba(65,51,35,0.12)] ring-[4px] ring-[#fffaf3]">
+            <PiattoPlateMark className="size-[3.45rem]" />
           </span>
-          <span className="mt-[2.15rem] size-1.5 rounded-full bg-piatto-terracotta" aria-hidden="true" />
           <span className="sr-only">Piatto Feed</span>
         </span>
 
-        {tabs.slice(2).map(({ label, icon: Icon }) => (
-          <span key={label} className="flex min-w-0 flex-col items-center gap-1 rounded-2xl px-1 py-1 text-[0.53rem] font-semibold leading-none text-piatto-ink">
-            <Icon className="size-3.5 stroke-[2.1]" aria-hidden="true" />
-            {label}
-          </span>
-        ))}
+        <span className="flex min-w-0 flex-col items-center gap-0.5 rounded-xl px-1 py-1 text-[0.5rem] font-semibold leading-none text-piatto-ink">
+          <Heart className="size-3.5 stroke-[2.15]" aria-hidden="true" />
+          Favoriten
+        </span>
+
+        <span className="flex min-w-0 flex-col items-center gap-0.5 rounded-xl px-1 py-1 text-[0.5rem] font-semibold leading-none text-piatto-ink">
+          <UserRound className="size-3.5 stroke-[2.15]" aria-hidden="true" />
+          Profil
+        </span>
       </div>
     </nav>
   );
