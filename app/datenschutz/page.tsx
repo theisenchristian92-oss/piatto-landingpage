@@ -4,68 +4,73 @@ import { PiattoLogo } from "@/components/landing/logo";
 
 export const metadata: Metadata = {
   title: "Datenschutzerklärung | Piatto",
-  description: "Datenschutzhinweise für die Piatto Landingpage und Waitlist zur Mainz Beta.",
+  description: "Datenschutzhinweise für die Piatto Landingpage und Waitlist zur Beta.",
 };
 
 const sections = [
-  { id: "kurzueberblick", label: "Kurzüberblick" },
-  { id: "verantwortlicher", label: "Verantwortlicher" },
-  { id: "datenschutzanfragen", label: "Datenschutzanfragen" },
-  { id: "websitebesuch", label: "Besuch der Website" },
-  { id: "waitlist", label: "Waitlist und Beta" },
-  { id: "double-opt-in", label: "Double Opt-in" },
-  { id: "supabase", label: "Supabase" },
-  { id: "e-mail-anbieter", label: "E-Mail-Anbieter" },
-  { id: "cookies-tracking", label: "Cookies und Tracking" },
-  { id: "speicherdauer", label: "Speicherdauer" },
-  { id: "empfaenger", label: "Empfänger" },
-  { id: "drittlanduebermittlung", label: "Drittlandübermittlung" },
-  { id: "rechte", label: "Betroffenenrechte" },
-  { id: "bereitstellung", label: "Pflicht zur Bereitstellung" },
-  { id: "minderjaehrige", label: "Minderjährige" },
-  { id: "aenderungen", label: "Änderungen" },
+  { id: "kurzueberblick", label: "1. Kurzüberblick" },
+  { id: "verantwortlicher", label: "2. Verantwortlicher" },
+  { id: "datenschutzanfragen", label: "3. Datenschutzanfragen" },
+  { id: "websitebesuch", label: "4. Besuch der Website" },
+  { id: "hosting", label: "5. Hosting über Vercel" },
+  { id: "waitlist", label: "6. Waitlist und Beta" },
+  { id: "double-opt-in", label: "7. Double Opt-in" },
+  { id: "supabase", label: "8. Speicherung in Supabase" },
+  { id: "e-mail-versand", label: "9. E-Mail-Versand" },
+  { id: "cookies-tracking", label: "10. Cookies und Tracking" },
+  { id: "speicherdauer", label: "11. Speicherdauer" },
+  { id: "empfaenger", label: "12. Empfänger" },
+  { id: "drittlanduebermittlung", label: "13. Drittlandübermittlung" },
+  { id: "rechte", label: "14. Ihre Rechte" },
+  { id: "bereitstellung", label: "15. Pflicht zur Bereitstellung" },
+  { id: "minderjaehrige", label: "16. Minderjährige" },
+  { id: "aenderungen", label: "17. Änderungen" },
+];
+
+const websiteData = [
+  "IP-Adresse",
+  "Datum und Uhrzeit des Abrufs",
+  "aufgerufene Seiten und Dateien",
+  "Browsertyp und Browserversion",
+  "Betriebssystem",
+  "Referrer-URL",
+  "technische Server-Logdaten",
 ];
 
 const waitlistData = [
   "E-Mail-Adresse",
-  "Rolle: Gast, Restaurant oder Creator",
-  "Name, falls angegeben",
-  "Stadt, falls angegeben",
-  "Restaurantname, falls angegeben",
-  "Website, falls angegeben",
-  "Social Handle, falls angegeben",
-  "Nachricht, falls angegeben",
+  "Rolle, falls ausgewählt",
+  "Stadt oder Beta-Bezug, falls technisch gespeichert",
   "Einwilligungsstatus",
-  "Zeitpunkt der Einwilligung",
-  "technische Metadaten wie User-Agent, Referrer oder UTM-Parameter, falls gespeichert",
+  "Zeitpunkt der Eintragung",
+  "technische Metadaten, falls gespeichert, zum Beispiel User-Agent, Referrer oder UTM-Parameter",
 ];
 
 const waitlistPurposes = [
   "Aufnahme in die Piatto Waitlist",
   "Kontaktaufnahme zur Beta",
-  "Versand von Beta-Updates",
-  "Einordnung, ob eine Anmeldung von Gast, Restaurant oder Creator kommt",
-  "Verbesserung der Beta-Planung",
+  "Versand einzelner Beta-Informationen",
+  "Planung und Auswertung der frühen Beta-Nachfrage",
+  "Nachweis der erteilten Einwilligung",
+];
+
+const recipients = [
+  "Hosting-Anbieter",
+  "Datenbankanbieter",
+  "technische Dienstleister für Betrieb, Wartung und Sicherheit",
+  "E-Mail-Dienstleister, falls künftig angebunden",
 ];
 
 const dataSubjectRights = [
-  "Auskunft",
-  "Berichtigung",
-  "Löschung",
+  "Auskunft über Ihre gespeicherten personenbezogenen Daten",
+  "Berichtigung unrichtiger Daten",
+  "Löschung personenbezogener Daten",
   "Einschränkung der Verarbeitung",
   "Datenübertragbarkeit",
-  "Widerspruch",
-  "Widerruf einer Einwilligung",
+  "Widerspruch gegen bestimmte Verarbeitungen",
+  "Widerruf einer erteilten Einwilligung mit Wirkung für die Zukunft",
   "Beschwerde bei einer Datenschutzaufsichtsbehörde",
 ];
-
-function TodoNote({ children }: { children: React.ReactNode }) {
-  return (
-    <p className="mt-4 rounded-lg border border-piatto-terracotta/30 bg-[#FFF3EA] px-4 py-3 text-sm font-semibold leading-6 text-piatto-ink">
-      TODO: {children}
-    </p>
-  );
-}
 
 function Section({
   id,
@@ -78,7 +83,7 @@ function Section({
 }) {
   return (
     <section id={id} className="scroll-mt-24 border-t border-piatto-line pt-9">
-      <h2 className="text-2xl font-semibold leading-tight text-piatto-ink">{title}</h2>
+      <h2 className="text-2xl font-semibold leading-tight text-piatto-olive">{title}</h2>
       <div className="mt-4 space-y-4 text-base leading-8 text-piatto-muted">{children}</div>
     </section>
   );
@@ -88,11 +93,19 @@ function BulletList({ items }: { items: string[] }) {
   return (
     <ul className="space-y-2 pl-5">
       {items.map((item) => (
-        <li key={item} className="list-disc">
+        <li key={item} className="list-disc marker:text-piatto-terracotta">
           {item}
         </li>
       ))}
     </ul>
+  );
+}
+
+function AddressBlock({ children }: { children: React.ReactNode }) {
+  return (
+    <address className="not-italic text-piatto-ink">
+      <div className="space-y-1">{children}</div>
+    </address>
   );
 }
 
@@ -116,14 +129,14 @@ export default function DatenschutzPage() {
 
         <div className="mx-auto max-w-3xl py-12 sm:py-16">
           <p className="text-sm font-semibold uppercase tracking-[0.16em] text-piatto-terracotta">Piatto Beta</p>
-          <h1 className="mt-4 break-words text-3xl font-semibold leading-tight text-piatto-ink sm:text-5xl">
+          <h1 className="mt-4 break-words text-3xl font-semibold leading-tight text-piatto-olive sm:text-5xl">
             Datenschutz<wbr />
             erklärung
           </h1>
-          <p className="mt-5 text-base leading-8 text-piatto-muted">Stand: 3. Mai 2026</p>
+          <p className="mt-5 text-base leading-8 text-piatto-muted">Stand: 4. Mai 2026</p>
 
           <div className="mt-8 rounded-lg border border-piatto-line bg-white px-5 py-5 shadow-piatto sm:px-6">
-            <p className="text-sm font-semibold uppercase tracking-[0.14em] text-piatto-olive">Inhalt</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.14em] text-piatto-terracotta">Inhalt</p>
             <nav className="mt-4 grid gap-2 text-sm font-semibold leading-6 text-piatto-muted sm:grid-cols-2" aria-label="Inhaltsverzeichnis">
               {sections.map((section) => (
                 <a key={section.id} href={`#${section.id}`} className="rounded-md py-1 transition hover:text-piatto-ink focus-ring">
@@ -134,167 +147,210 @@ export default function DatenschutzPage() {
           </div>
 
           <article className="mt-10 space-y-10">
-            <Section id="kurzueberblick" title="Kurzüberblick">
+            <Section id="kurzueberblick" title="1. Kurzüberblick">
               <p>
-                Piatto ist eine dish-first Food Discovery Plattform. Diese Website sammelt frühe Registrierungen für die
-                Mainz Beta.
+                Piatto ist eine dish-first Food-Discovery-Plattform im Beta-Aufbau. Diese Website dient aktuell vor
+                allem dazu, über Piatto zu informieren und frühe Interessenten für die Beta-Waitlist zu sammeln.
               </p>
               <p>
-                Die Verarbeitung betrifft aktuell vor allem den Aufruf der Website, die Eintragung in die Waitlist und
-                die Kontaktaufnahme im Zusammenhang mit der Beta.
-              </p>
-            </Section>
-
-            <Section id="verantwortlicher" title="Verantwortlicher">
-              <div className="rounded-lg border border-piatto-line bg-white px-4 py-4 text-piatto-ink">
-                <p className="font-semibold">Piatto</p>
-                <p>[Name/Firma ergänzen]</p>
-                <p>[Adresse ergänzen]</p>
-                <p>E-Mail: [kontakt@piatto.world oder finale E-Mail ergänzen]</p>
-              </div>
-              <TodoNote>Verantwortlichen final vor Public Launch ergänzen.</TodoNote>
-            </Section>
-
-            <Section id="datenschutzanfragen" title="Kontakt für Datenschutzanfragen">
-              <p>
-                Für Datenschutzanfragen erreichen Sie uns unter [datenschutz@piatto.world oder kontakt@piatto.world
-                ergänzen].
+                Dabei verarbeiten wir insbesondere technische Daten beim Besuch der Website sowie Daten, die Sie
+                freiwillig über das Waitlist-Formular oder bei einer Kontaktaufnahme angeben.
               </p>
             </Section>
 
-            <Section id="websitebesuch" title="Verarbeitung beim Besuch der Website">
-              <p>Beim Aufruf der Website können technische Daten verarbeitet werden, zum Beispiel:</p>
-              <BulletList
-                items={[
-                  "IP-Adresse",
-                  "Datum und Uhrzeit des Abrufs",
-                  "aufgerufene Seiten",
-                  "Browser und Betriebssystem",
-                  "Referrer",
-                  "Server-Logdaten",
-                ]}
-              />
+            <Section id="verantwortlicher" title="2. Verantwortlicher">
+              <AddressBlock>
+                <p className="font-semibold">Christian Theisen</p>
+                <p>Mainstraße 15</p>
+                <p>61440 Oberursel</p>
+                <p>Deutschland</p>
+              </AddressBlock>
               <p>
-                Die Verarbeitung erfolgt zur technischen Bereitstellung der Website, zur Sicherheit und zur
-                Fehleranalyse.
+                E-Mail:{" "}
+                <a href="mailto:kontakt@piatto.world" className="font-semibold text-piatto-olive underline underline-offset-4">
+                  kontakt@piatto.world
+                </a>
+              </p>
+            </Section>
+
+            <Section id="datenschutzanfragen" title="3. Kontakt für Datenschutzanfragen">
+              <p>Für Datenschutzanfragen erreichen Sie uns unter:</p>
+              <p>
+                <a href="mailto:kontakt@piatto.world" className="font-semibold text-piatto-olive underline underline-offset-4">
+                  kontakt@piatto.world
+                </a>
+              </p>
+            </Section>
+
+            <Section id="websitebesuch" title="4. Besuch der Website">
+              <p>Beim Aufruf dieser Website können technische Daten verarbeitet werden. Dazu können insbesondere gehören:</p>
+              <BulletList items={websiteData} />
+              <p>
+                Die Verarbeitung erfolgt, um die Website technisch bereitzustellen, die Sicherheit zu gewährleisten,
+                Fehler zu analysieren und Missbrauch zu verhindern.
               </p>
               <p>
                 Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes Interesse liegt im sicheren und
                 zuverlässigen Betrieb dieser Website.
               </p>
-              <p>Diese Website wird über [Hosting-Anbieter ergänzen] bereitgestellt.</p>
-              <TodoNote>Hosting-Anbieter, Speicherort, Auftragsverarbeitung und Log-Speicherdauer final ergänzen.</TodoNote>
             </Section>
 
-            <Section id="waitlist" title="Waitlist und Beta-Registrierung">
-              <p>Wenn sich Nutzer auf die Piatto Waitlist eintragen, verarbeiten wir die angegebenen Daten.</p>
+            <Section id="hosting" title="5. Hosting über Vercel">
+              <p>Diese Website wird über Vercel bereitgestellt.</p>
               <div>
-                <p className="font-semibold text-piatto-ink">Daten</p>
+                <p className="font-semibold text-piatto-ink">Anbieter:</p>
+                <AddressBlock>
+                  <p>Vercel Inc.</p>
+                  <p>440 N Barranca Ave #4133</p>
+                  <p>Covina, CA 91723</p>
+                  <p>USA</p>
+                </AddressBlock>
+              </div>
+              <p>
+                Beim Betrieb der Website kann Vercel technische Daten verarbeiten, insbesondere Server-Logdaten und
+                Zugriffsdaten. Vercel betreibt eine globale Infrastruktur. Dabei können Daten auch außerhalb der EU oder
+                des EWR verarbeitet werden.
+              </p>
+              <p>Weitere Informationen stellt Vercel in seinen Datenschutz- und Sicherheitsinformationen bereit.</p>
+            </Section>
+
+            <Section id="waitlist" title="6. Waitlist und Beta-Registrierung">
+              <p>Wenn Sie sich in die Piatto Waitlist eintragen, verarbeiten wir die Daten, die Sie im Formular angeben.</p>
+              <div>
+                <p className="font-semibold text-piatto-ink">Aktuell können insbesondere folgende Daten verarbeitet werden:</p>
                 <BulletList items={waitlistData} />
               </div>
               <div>
-                <p className="font-semibold text-piatto-ink">Zwecke</p>
+                <p className="font-semibold text-piatto-ink">Zwecke der Verarbeitung:</p>
                 <BulletList items={waitlistPurposes} />
               </div>
               <p>
-                Rechtsgrundlage für die Kontaktaufnahme und den Versand von Beta-Updates ist Art. 6 Abs. 1 lit. a DSGVO,
-                also Ihre Einwilligung.
+                Rechtsgrundlage für die Kontaktaufnahme und Beta-Informationen ist Art. 6 Abs. 1 lit. a DSGVO, also
+                Ihre Einwilligung.
               </p>
               <p>
-                Für die technische Speicherung und den Nachweis der Einwilligung stützen wir uns zusätzlich auf Art. 6
-                Abs. 1 lit. f DSGVO.
-              </p>
-              <p>Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen.</p>
-            </Section>
-
-            <Section id="double-opt-in" title="Double Opt-in">
-              <p>
-                Double Opt-in ist im Datenmodell vorbereitet. Der Mailversand ist aktuell noch nicht angebunden.
+                Für die technische Speicherung, Missbrauchsprävention und den Nachweis der Einwilligung stützen wir uns
+                ergänzend auf Art. 6 Abs. 1 lit. f DSGVO.
               </p>
               <p>
-                Sobald wir regelmäßige Beta-Updates oder Newsletter versenden, werden wir hierfür ein
-                Double-Opt-in-Verfahren einsetzen, soweit erforderlich.
+                Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen. Schreiben Sie dafür eine
+                E-Mail an{" "}
+                <a href="mailto:kontakt@piatto.world" className="font-semibold text-piatto-olive underline underline-offset-4">
+                  kontakt@piatto.world
+                </a>
+                .
               </p>
             </Section>
 
-            <Section id="supabase" title="Supabase">
+            <Section id="double-opt-in" title="7. Double Opt-in">
               <p>
-                Waitlist-Daten werden in Supabase gespeichert. Für die Datenbank nutzen wir Supabase. Supabase
-                verarbeitet Daten als technischer Dienstleister.
+                Ein automatisiertes Double-Opt-in-Verfahren ist aktuell noch nicht aktiv. Wenn künftig regelmäßige
+                Newsletter oder wiederkehrende Marketing-E-Mails versendet werden, wird hierfür ein geeignetes
+                Einwilligungs- und Bestätigungsverfahren eingerichtet, soweit dies erforderlich ist.
               </p>
-              <TodoNote>
-                genaue Supabase-Region prüfen, Auftragsverarbeitungsvertrag prüfen, Drittlandübermittlung prüfen und
-                Anbieterangaben final ergänzen.
-              </TodoNote>
             </Section>
 
-            <Section id="e-mail-anbieter" title="E-Mail-Anbieter">
+            <Section id="supabase" title="8. Speicherung in Supabase">
+              <p>Für die Speicherung der Waitlist-Daten nutzen wir Supabase als technische Datenbanklösung.</p>
+              <div>
+                <p className="font-semibold text-piatto-ink">Anbieter:</p>
+                <AddressBlock>
+                  <p>Supabase Inc.</p>
+                  <p>970 Toa Payoh North #07-04</p>
+                  <p>Singapore 318992</p>
+                  <p>Singapore</p>
+                </AddressBlock>
+              </div>
               <p>
-                Für den späteren Versand von Beta-Updates kann ein E-Mail-Dienstleister eingesetzt werden. Der konkrete
-                Anbieter wird vor Aktivierung des Versands in dieser Datenschutzerklärung ergänzt.
+                Supabase kann personenbezogene Daten als technischer Dienstleister verarbeiten. Die konkret gewählte
+                Projektregion richtet sich nach der technischen Konfiguration des Supabase-Projekts.
               </p>
-              <TodoNote>Brevo, Resend oder anderen Anbieter prüfen und erst nach finaler Auswahl ergänzen.</TodoNote>
+              <p>
+                Verarbeitete Daten können insbesondere die im Waitlist-Formular angegebenen Daten sowie technische
+                Metadaten umfassen.
+              </p>
+              <p>Zweck der Nutzung von Supabase ist die sichere technische Speicherung und Verwaltung der Waitlist-Daten.</p>
             </Section>
 
-            <Section id="cookies-tracking" title="Cookies und Tracking">
+            <Section id="e-mail-versand" title="9. E-Mail-Versand">
+              <p>
+                Ein externer E-Mail-Dienstleister für regelmäßige Newsletter oder automatisierte Beta-Mails ist aktuell
+                nicht aktiv angebunden.
+              </p>
+              <p>
+                Falls künftig ein E-Mail-Dienstleister eingesetzt wird, wird diese Datenschutzerklärung vor oder mit
+                Aktivierung entsprechend ergänzt.
+              </p>
+            </Section>
+
+            <Section id="cookies-tracking" title="10. Cookies und Tracking">
               <p>Aktuell setzen wir keine Tracking-Cookies und nutzen kein externes Webanalyse-Tool.</p>
+              <p>
+                Soweit technisch erforderliche Cookies oder vergleichbare Technologien eingesetzt werden, dienen sie
+                ausschließlich dem Betrieb der Website oder vom Nutzer ausdrücklich gewünschten Funktionen. Für nicht
+                erforderliche Cookies oder Tracking-Technologien wird vorab eine Einwilligung eingeholt, sofern dies
+                rechtlich erforderlich ist.
+              </p>
             </Section>
 
-            <Section id="speicherdauer" title="Speicherdauer">
+            <Section id="speicherdauer" title="11. Speicherdauer">
               <p>
-                Waitlist-Daten speichern wir, solange die Beta-Vormerkung besteht oder bis die Einwilligung widerrufen
-                wird.
+                Waitlist-Daten speichern wir, solange die Beta-Vormerkung besteht oder bis Sie Ihre Einwilligung
+                widerrufen.
               </p>
               <p>
-                Nach Widerruf löschen oder sperren wir die Daten, soweit keine gesetzlichen Aufbewahrungspflichten
-                entgegenstehen.
+                Nach einem Widerruf löschen oder sperren wir die Daten, soweit keine gesetzlichen Aufbewahrungspflichten
+                oder berechtigten Nachweisinteressen entgegenstehen.
               </p>
-              <p>Server-Logs werden nur so lange gespeichert, wie es für Sicherheit und Betrieb erforderlich ist.</p>
-              <TodoNote>Konkrete Hosting-Log-Speicherdauer ergänzen.</TodoNote>
+              <p>
+                Technische Logdaten werden nur so lange gespeichert, wie dies für Sicherheit, Betrieb und Fehleranalyse
+                erforderlich ist.
+              </p>
             </Section>
 
-            <Section id="empfaenger" title="Empfänger personenbezogener Daten">
+            <Section id="empfaenger" title="12. Empfänger personenbezogener Daten">
               <p>Personenbezogene Daten können an folgende Kategorien von Empfängern übermittelt werden:</p>
-              <BulletList
-                items={[
-                  "Hosting-Anbieter",
-                  "Datenbankanbieter Supabase",
-                  "E-Mail-Dienstleister, sobald angebunden",
-                  "technische Dienstleister im Rahmen von Wartung und Betrieb",
-                ]}
-              />
+              <BulletList items={recipients} />
+              <p>Eine Weitergabe zu Werbezwecken an Dritte erfolgt nicht.</p>
             </Section>
 
-            <Section id="drittlanduebermittlung" title="Drittlandübermittlung">
+            <Section id="drittlanduebermittlung" title="13. Drittlandübermittlung">
               <p>
-                Eine Übermittlung in Länder außerhalb der EU/des EWR kann je nach eingesetzten Dienstleistern
-                stattfinden. In diesem Fall achten wir auf geeignete Garantien nach DSGVO, zum Beispiel
-                Angemessenheitsbeschlüsse oder Standardvertragsklauseln.
+                Je nach eingesetzten Dienstleistern kann eine Verarbeitung personenbezogener Daten außerhalb der EU oder
+                des EWR stattfinden.
               </p>
-              <TodoNote>Konkrete Dienstleister und Transfermechanismen final prüfen.</TodoNote>
+              <p>
+                In solchen Fällen achten wir darauf, dass geeignete Datenschutzgarantien vorliegen, zum Beispiel
+                Angemessenheitsbeschlüsse, Standardvertragsklauseln oder andere nach der DSGVO vorgesehene Mechanismen.
+              </p>
             </Section>
 
-            <Section id="rechte" title="Betroffenenrechte">
+            <Section id="rechte" title="14. Ihre Rechte">
               <p>Sie haben nach Maßgabe der DSGVO insbesondere folgende Rechte:</p>
               <BulletList items={dataSubjectRights} />
-            </Section>
-
-            <Section id="bereitstellung" title="Pflicht zur Bereitstellung">
               <p>
-                Die Angabe der E-Mail-Adresse und der Rolle ist für die Waitlist erforderlich. Optionale Felder sind
-                freiwillig.
+                Zur Ausübung Ihrer Rechte können Sie sich jederzeit an{" "}
+                <a href="mailto:kontakt@piatto.world" className="font-semibold text-piatto-olive underline underline-offset-4">
+                  kontakt@piatto.world
+                </a>{" "}
+                wenden.
               </p>
-              <p>Ohne E-Mail-Adresse kann keine Aufnahme in die Waitlist erfolgen.</p>
             </Section>
 
-            <Section id="minderjaehrige" title="Minderjährige">
+            <Section id="bereitstellung" title="15. Pflicht zur Bereitstellung">
+              <p>Die Angabe einer E-Mail-Adresse ist erforderlich, um sich in die Waitlist einzutragen.</p>
+              <p>Weitere Angaben sind freiwillig, sofern sie im Formular angeboten werden.</p>
+              <p>Ohne E-Mail-Adresse ist eine Aufnahme in die Waitlist nicht möglich.</p>
+            </Section>
+
+            <Section id="minderjaehrige" title="16. Minderjährige">
               <p>
                 Unser Angebot richtet sich nicht gezielt an Kinder. Minderjährige sollten personenbezogene Daten nur mit
                 Zustimmung der Erziehungsberechtigten übermitteln.
               </p>
             </Section>
 
-            <Section id="aenderungen" title="Änderungen dieser Datenschutzerklärung">
+            <Section id="aenderungen" title="17. Änderungen dieser Datenschutzerklärung">
               <p>
                 Wir können diese Datenschutzerklärung anpassen, wenn sich unsere Website, eingesetzte Dienste oder
                 rechtliche Anforderungen ändern.

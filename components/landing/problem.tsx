@@ -3,7 +3,7 @@ import { Bookmark, Search, Star } from "lucide-react";
 const cards = [
   {
     title: "Gerichte finden",
-    text: "Suche direkt nach dem Gericht, auf das du Lust hast.",
+    text: "Suche direkt nach dem, worauf du Lust hast.",
     icon: Search,
     image: "/landing/card-gerichte-finden.png",
   },
@@ -15,7 +15,7 @@ const cards = [
   },
   {
     title: "Favoriten speichern",
-    text: "Merke dir Gerichte für später.",
+    text: "Speichere Gerichte für später.",
     icon: Bookmark,
     image: "/landing/card-favoriten-speichern.png",
   },

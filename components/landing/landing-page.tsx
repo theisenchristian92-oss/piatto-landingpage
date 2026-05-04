@@ -1,4 +1,3 @@
-import { AudienceSections } from "./audience-sections";
 import { FaqSection } from "./faq";
 import { Footer } from "./footer";
 import { Header } from "./header";
@@ -13,7 +12,6 @@ export function LandingPage() {
       <Header />
       <Hero />
       <ProblemSection />
-      <AudienceSections />
       <MainzBetaSection />
       <WaitlistSection />
       <FaqSection />

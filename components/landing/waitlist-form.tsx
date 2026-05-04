@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, CheckCircle2, Loader2, Mail, Send, Store, UserRound } from "lucide-react";
+import { ArrowRight, CheckCircle2, Loader2, Mail, Send, Store } from "lucide-react";
 import { type FormEvent, type ReactNode, useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
@@ -98,10 +98,10 @@ export function WaitlistSection() {
             Jetzt für die Piatto Beta vormerken.
           </h2>
           <p className="mt-5 max-w-xl text-lg leading-8 text-white/72">
-            Gäste, Restaurants und Creator können sich für die Mainz Beta eintragen.
+            Trage dich ein und erfahre als Erste:r, wann Piatto in Mainz startet.
           </p>
           <div className="mt-7 flex flex-wrap gap-2 text-sm text-white/78">
-            {["Mainz Beta", "Gast", "Restaurant", "Creator"].map((item) => (
+            {["Mainz Beta", "Dish-first", "Waitlist geöffnet"].map((item) => (
               <span key={item} className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.06] px-3 py-1.5 font-semibold">
                 <CheckCircle2 className="size-4 text-[#F3C5AD]" aria-hidden="true" />
                 {item}
@@ -119,7 +119,7 @@ export function WaitlistSection() {
 function WaitlistForm() {
   const [form, setForm] = useState<FormState>(initialFormState);
   const [submitState, setSubmitState] = useState<SubmitState>("idle");
-  const [message, setMessage] = useState("Mainz ist voreingestellt. Sie können Ihre Stadt bei Bedarf ändern.");
+  const [message, setMessage] = useState("E-Mail reicht aus. Rolle ist optional.");
   const emailRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -142,7 +142,7 @@ function WaitlistForm() {
 
     if (submitState !== "loading") {
       setSubmitState("idle");
-      setMessage("Mainz ist voreingestellt. Sie können Ihre Stadt bei Bedarf ändern.");
+      setMessage("E-Mail reicht aus. Rolle ist optional.");
     }
   };
 
@@ -223,12 +223,12 @@ function WaitlistForm() {
     >
       <div className="flex items-start gap-3 border-b border-piatto-line pb-5">
         <div className="grid size-11 shrink-0 place-items-center rounded-2xl bg-piatto-terracotta text-white shadow-[0_12px_24px_rgba(217,108,59,0.22)]">
-          <UserRound className="size-5" aria-hidden="true" />
+          <Mail className="size-5" aria-hidden="true" />
         </div>
         <div>
           <h3 className="text-xl font-semibold">Sichern Sie sich einen Platz auf der Piatto Waitlist.</h3>
           <p className="mt-2 text-sm leading-6 text-piatto-muted">
-            E-Mail, Rolle und Einwilligung reichen aus. Alles Weitere ist optional.
+            Wenige Angaben, klare Beta-Updates. Mainz ist voreingestellt.
           </p>
         </div>
       </div>
@@ -255,9 +255,8 @@ function WaitlistForm() {
         </label>
 
         <label className="block">
-          <span className="text-sm font-semibold">Rolle *</span>
+          <span className="text-sm font-semibold">Rolle (optional)</span>
           <select
-            required
             value={form.role}
             onChange={(event) => updateForm("role", event.target.value as WaitlistRole)}
             className="focus-ring mt-2 h-12 w-full rounded-2xl border border-piatto-line bg-white px-3 text-base shadow-sm"
@@ -268,79 +267,6 @@ function WaitlistForm() {
               </option>
             ))}
           </select>
-        </label>
-
-        <label className="block">
-          <span className="text-sm font-semibold">Name</span>
-          <input
-            type="text"
-            autoComplete="name"
-            value={form.fullName}
-            onChange={(event) => updateForm("fullName", event.target.value)}
-            placeholder="Optional"
-            className="focus-ring mt-2 h-12 w-full rounded-2xl border border-piatto-line bg-white px-3 text-base shadow-sm"
-          />
-        </label>
-
-        <label className="block">
-          <span className="text-sm font-semibold">Stadt</span>
-          <input
-            type="text"
-            autoComplete="address-level2"
-            value={form.city}
-            onChange={(event) => updateForm("city", event.target.value)}
-            className="focus-ring mt-2 h-12 w-full rounded-2xl border border-piatto-line bg-white px-3 text-base shadow-sm"
-          />
-        </label>
-
-        {form.role === "restaurant" ? (
-          <>
-            <label className="block">
-              <span className="text-sm font-semibold">Restaurantname</span>
-              <input
-                type="text"
-                value={form.restaurantName}
-                onChange={(event) => updateForm("restaurantName", event.target.value)}
-                placeholder="Optional"
-                className="focus-ring mt-2 h-12 w-full rounded-2xl border border-piatto-line bg-white px-3 text-base shadow-sm"
-              />
-            </label>
-            <label className="block sm:col-span-2">
-              <span className="text-sm font-semibold">Website</span>
-              <input
-                type="url"
-                inputMode="url"
-                value={form.website}
-                onChange={(event) => updateForm("website", event.target.value)}
-                placeholder="https://"
-                className="focus-ring mt-2 h-12 w-full rounded-2xl border border-piatto-line bg-white px-3 text-base shadow-sm"
-              />
-            </label>
-          </>
-        ) : null}
-
-        {form.role === "creator" ? (
-          <label className="block sm:col-span-2">
-            <span className="text-sm font-semibold">Instagram oder TikTok Handle</span>
-            <input
-              type="text"
-              value={form.socialHandle}
-              onChange={(event) => updateForm("socialHandle", event.target.value)}
-              placeholder="@piatto"
-              className="focus-ring mt-2 h-12 w-full rounded-2xl border border-piatto-line bg-white px-3 text-base shadow-sm"
-            />
-          </label>
-        ) : null}
-
-        <label className="block sm:col-span-2">
-          <span className="text-sm font-semibold">Nachricht</span>
-          <textarea
-            value={form.message}
-            onChange={(event) => updateForm("message", event.target.value)}
-            rows={4}
-            placeholder="Optional"
-            className="focus-ring mt-2 w-full resize-y rounded-2xl border border-piatto-line bg-white px-3 py-3 text-base shadow-sm"
-          />
         </label>
 
         <label className="hidden" aria-hidden="true">

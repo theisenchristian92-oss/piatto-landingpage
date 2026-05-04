@@ -6,28 +6,8 @@ const questions = [
     answer: "Piatto ist eine dish-first Food Discovery Plattform. Im Mittelpunkt stehen konkrete Gerichte statt nur Restaurants.",
   },
   {
-    question: "Warum dish-first?",
-    answer: "Weil Gäste oft Lust auf ein konkretes Gericht haben. Piatto macht dieses Gericht sichtbar, bewertbar und wiederauffindbar.",
-  },
-  {
-    question: "Warum nicht bestehende Systeme nutzen?",
-    answer: "Viele Plattformen denken zuerst in Restaurants, Karten oder Lieferlogik. Piatto startet beim Gericht und nutzt Restaurants als Kontext.",
-  },
-  {
-    question: "Ist Piatto eine Lieferapp?",
-    answer: "Nein. Piatto startet als Discovery-Plattform. Bestellung, Reservierung oder Payment können später folgen.",
-  },
-  {
     question: "Wo startet Piatto?",
-    answer: "Die Beta startet fokussiert in Mainz. Danach wird Piatto Schritt für Schritt in Rhein-Main wachsen.",
-  },
-  {
-    question: "Wer kann sich vormerken?",
-    answer: "Gäste, Restaurants und Creator können sich für die Mainz Beta auf die Waitlist setzen.",
-  },
-  {
-    question: "Was bringt Piatto Restaurants?",
-    answer: "Restaurants können einzelne Gerichte sichtbarer machen und besser verstehen, welche Gerichte Nachfrage erzeugen.",
+    answer: "Die Beta startet in Mainz. Danach wächst Piatto Schritt für Schritt in Rhein-Main.",
   },
 ];
 

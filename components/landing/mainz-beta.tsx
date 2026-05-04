@@ -14,7 +14,7 @@ export function MainzBetaSection() {
             </div>
             <div>
               <p className="max-w-2xl text-lg leading-8 text-piatto-muted">
-                Piatto startet fokussiert in Mainz. Danach wird die Plattform Schritt für Schritt in Rhein-Main wachsen.
+                Danach wächst Piatto Schritt für Schritt in Rhein-Main.
               </p>
               <div className="mt-5 flex flex-wrap gap-2">
                 {badges.map((badge) => (

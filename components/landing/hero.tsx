@@ -16,18 +16,15 @@ export function Hero() {
           </p>
 
           <h1 className="mt-7 max-w-4xl text-5xl font-semibold leading-[0.98] tracking-[-0.015em] text-piatto-ink sm:text-6xl lg:text-7xl">
-            Entdecke Gerichte, nicht nur Restaurants.
+            Entdecke Gerichte, nicht Restaurants.
           </h1>
 
           <p className="mt-6 max-w-2xl text-lg leading-8 text-piatto-muted sm:text-xl">
-            Piatto zeigt dir konkrete Gerichte in deiner Nähe. Mit Bewertungen, Preisen und Restaurant-Kontext.
+            Finde sofort das beste Gericht in deiner Nähe.
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <WaitlistJumpButton>Zur Waitlist</WaitlistJumpButton>
-            <WaitlistJumpButton role="restaurant" variant="secondary">
-              Für Restaurants vormerken
-            </WaitlistJumpButton>
           </div>
 
           <div className="mt-7 flex max-w-xl flex-wrap gap-2">
