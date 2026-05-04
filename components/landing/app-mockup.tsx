@@ -180,7 +180,6 @@ function DishListCard({ dish, active }: { dish: Dish; active: boolean }) {
               <h3 className="overflow-hidden text-[0.82rem] font-semibold leading-tight text-[#1F1F1A] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:1]">{dish.name}</h3>
               <p className="mt-0.5 truncate text-[0.64rem] font-medium text-[#6F6A5F]">
                 {dish.restaurant}
-                <span className="ml-1 inline-flex size-2.5 items-center justify-center rounded-full bg-[#D96C3B] align-[-0.08rem] text-[0.42rem] font-bold text-white">✓</span>
               </p>
             </div>
             <Heart className={["mt-0.5 size-3.5 shrink-0", active ? "fill-[#D96C3B] text-[#D96C3B]" : "text-[#1F1F1A]"].join(" ")} aria-hidden="true" />
@@ -191,7 +190,7 @@ function DishListCard({ dish, active }: { dish: Dish; active: boolean }) {
               <Star className="size-2.5 fill-current" aria-hidden="true" />
               {dish.rating}
             </span>
-            <span className="min-w-0 truncate text-[#6F6A5F]">({dish.votes}) · {dish.time}</span>
+            <span className="min-w-0 truncate text-[#6F6A5F]">({dish.votes})</span>
             <span className="shrink-0 text-[0.72rem] font-semibold text-[#D96C3B]">{dish.price}</span>
           </div>
         </div>
