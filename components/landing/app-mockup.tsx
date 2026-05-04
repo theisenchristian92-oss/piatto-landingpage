@@ -169,13 +169,14 @@ function PiattoPlateMark({ className }: { className?: string }) {
       <defs>
         <mask id="piatto-plate-bite">
           <rect width="64" height="64" fill="white" />
-          <circle cx="45.6" cy="15.8" r="8.2" fill="black" />
-          <circle cx="51.2" cy="23.5" r="5.3" fill="black" />
+          <circle cx="49.6" cy="11.7" r="6.4" fill="black" />
+          <circle cx="55.2" cy="19.2" r="6.1" fill="black" />
+          <circle cx="57.2" cy="27.2" r="5.4" fill="black" />
         </mask>
       </defs>
-      <circle cx="32" cy="32" r="24.5" fill="#fffaf3" />
-      <circle cx="32" cy="32" r="24.5" fill="none" stroke="#D96C3B" strokeWidth="5.2" mask="url(#piatto-plate-bite)" />
-      <path d="M23.3 22.7c3.3-4.8 8.6-7.1 14.4-6.4" fill="none" stroke="#55623B" strokeLinecap="round" strokeWidth="4.5" />
+      <circle cx="32" cy="32" r="27.8" fill="#fffaf3" />
+      <circle cx="32" cy="32" r="26.8" fill="none" stroke="#D96C3B" strokeWidth="7.6" mask="url(#piatto-plate-bite)" />
+      <path d="M20.9 31.2c2.7-8.5 9.4-14.2 18.1-15" fill="none" stroke="#55623B" strokeLinecap="round" strokeWidth="5.2" />
     </svg>
   );
 }
