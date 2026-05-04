@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-label="Schnitzel Wiener Art mit Pommes und Zitrone">
+  <defs>
+    <radialGradient id="plate" cx="50%" cy="45%" r="62%">
+      <stop offset="0" stop-color="#fffaf3"/>
+      <stop offset="0.72" stop-color="#f5e9da"/>
+      <stop offset="1" stop-color="#e6d8c5"/>
+    </radialGradient>
+    <linearGradient id="crumb" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#d99b4b"/>
+      <stop offset="0.58" stop-color="#b86e32"/>
+      <stop offset="1" stop-color="#8f4c2b"/>
+    </linearGradient>
+    <filter id="paper" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence baseFrequency="0.95" numOctaves="3" seed="11" type="fractalNoise"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="table" tableValues="0 0.16"/>
+      </feComponentTransfer>
+      <feBlend in2="SourceGraphic" mode="multiply"/>
+    </filter>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" flood-color="#4c311f" flood-opacity="0.18" stdDeviation="18"/>
+    </filter>
+  </defs>
+  <rect width="480" height="360" fill="#f5e9da"/>
+  <path d="M0 0h480v360H0z" fill="#fffaf3" filter="url(#paper)"/>
+  <ellipse cx="238" cy="185" rx="190" ry="128" fill="url(#plate)" filter="url(#shadow)"/>
+  <ellipse cx="238" cy="185" rx="157" ry="101" fill="#fffaf3" opacity="0.76"/>
+  <g transform="translate(92 60) rotate(-11 72 90)">
+    <rect x="11" y="20" width="22" height="155" rx="11" fill="#e6ae4d"/>
+    <rect x="43" y="11" width="22" height="164" rx="11" fill="#d99935"/>
+    <rect x="75" y="24" width="22" height="142" rx="11" fill="#edbd61"/>
+    <rect x="107" y="16" width="22" height="164" rx="11" fill="#d99b4b"/>
+  </g>
+  <path d="M163 121c37-34 111-28 151 4 34 27 41 70 15 99-37 41-112 45-157 13-45-31-47-81-9-116z" fill="url(#crumb)" filter="url(#shadow)"/>
+  <path d="M179 132c29-22 87-19 119 5 27 20 32 51 12 74-29 32-89 35-124 10-36-25-37-61-7-89z" fill="#d99948" opacity="0.48"/>
+  <g fill="#7b4a23" opacity="0.45">
+    <circle cx="210" cy="154" r="4"/>
+    <circle cx="263" cy="142" r="3"/>
+    <circle cx="292" cy="183" r="5"/>
+    <circle cx="228" cy="217" r="3"/>
+    <circle cx="181" cy="190" r="3"/>
+    <circle cx="252" cy="196" r="2.5"/>
+    <circle cx="314" cy="213" r="3"/>
+  </g>
+  <g transform="translate(310 78) rotate(18)">
+    <path d="M48 0a48 48 0 0 1 0 96V0z" fill="#f4cf62"/>
+    <path d="M48 10a38 38 0 0 1 0 76" fill="none" stroke="#fff7b5" stroke-width="8"/>
+    <path d="M48 0a48 48 0 0 1 0 96" fill="none" stroke="#d96c3b" stroke-width="5"/>
+  </g>
+  <g fill="#55623b">
+    <ellipse cx="320" cy="245" rx="13" ry="5" transform="rotate(-24 320 245)"/>
+    <ellipse cx="344" cy="237" rx="12" ry="5" transform="rotate(-18 344 237)"/>
+    <ellipse cx="366" cy="251" rx="12" ry="5" transform="rotate(18 366 251)"/>
+  </g>
+</svg>
