@@ -4,28 +4,40 @@ const schnitzelDishes = [
   {
     name: "Schnitzel mit Gurkensalat",
     detail: "Gurke, Zitrone, Preiselbeeren",
+    restaurant: "Gasthaus Rheinblick",
     rating: "4,8",
+    votes: "128",
+    time: "20-30 min",
     price: "15,90 €",
     image: "/dishes/schnitzel-feed-1.png",
   },
   {
     name: "Rahmschnitzel mit Pilzen",
     detail: "Pilzrahm, grüne Bohnen",
+    restaurant: "Weinstube Adler",
     rating: "4,3",
+    votes: "89",
+    time: "25-35 min",
     price: "17,20 €",
     image: "/dishes/schnitzel-feed-2.png",
   },
   {
     name: "Schnitzel mit Kartoffelsalat",
     detail: "Kartoffelsalat, Zitrone",
+    restaurant: "Mainzer Stuben",
     rating: "4,0",
+    votes: "74",
+    time: "20-30 min",
     price: "16,40 €",
     image: "/dishes/schnitzel-feed-3.png",
   },
   {
     name: "Schnitzel Wiener Art",
     detail: "Pommes, Zitrone, Petersilie",
+    restaurant: "Zum Markt",
     rating: "3,6",
+    votes: "52",
+    time: "15-25 min",
     price: "14,80 €",
     image: "/dishes/schnitzel-feed-4.png",
   },
@@ -103,26 +115,36 @@ export function AppMockup() {
             </div>
 
             <div className="mt-2.5 space-y-2">
-              {feedDishes.map((dish) => (
-                <article key={dish.name} className="rounded-[1.1rem] border border-piatto-line bg-white/92 p-2 shadow-[0_10px_24px_rgba(65,51,35,0.07)]">
-                  <div className="flex gap-3">
-                    <div className="relative size-[3.7rem] shrink-0 overflow-hidden rounded-[0.9rem] bg-piatto-cream">
+              {feedDishes.map((dish, index) => (
+                <article
+                  key={dish.name}
+                  className={[
+                    "rounded-[1.05rem] border bg-white/94 p-2 shadow-[0_10px_24px_rgba(65,51,35,0.08)]",
+                    index === 0 ? "border-piatto-terracotta/80" : "border-piatto-line",
+                  ].join(" ")}
+                >
+                  <div className="grid grid-cols-[4.9rem_1fr] gap-2.5">
+                    <div className="relative h-[4.85rem] overflow-hidden rounded-[0.82rem] bg-piatto-cream">
                       <img src={dish.image} alt="" className="h-full w-full object-cover" loading="lazy" />
                     </div>
-                    <div className="min-w-0 flex-1 py-0.5">
+                    <div className="min-w-0 py-0.5">
                       <div className="flex items-start justify-between gap-2">
                         <div className="min-w-0">
-                          <h3 className="truncate text-sm font-semibold text-piatto-ink">{dish.name}</h3>
-                          <p className="mt-1 truncate text-[0.72rem] font-medium text-piatto-muted">{dish.detail}</p>
+                          <h3 className="truncate text-[0.93rem] font-semibold leading-tight text-piatto-ink">{dish.name}</h3>
+                          <p className="mt-1 truncate text-[0.72rem] font-medium text-piatto-muted">
+                            {dish.restaurant}
+                            <span className="ml-1 inline-flex size-3 items-center justify-center rounded-full bg-piatto-terracotta align-[-0.08rem] text-[0.48rem] font-bold text-white">✓</span>
+                          </p>
                         </div>
-                        <Heart className="size-4 shrink-0 text-piatto-terracotta" aria-hidden="true" />
+                        <Heart className={["mt-0.5 size-4 shrink-0", index === 0 ? "fill-piatto-terracotta text-piatto-terracotta" : "text-piatto-ink"].join(" ")} aria-hidden="true" />
                       </div>
-                      <div className="mt-2 flex items-center justify-between text-[0.72rem] font-semibold">
-                        <span className="inline-flex items-center gap-1 rounded-full bg-piatto-cream px-2 py-1 text-piatto-olive">
-                          <Star className="size-3.5 fill-piatto-olive" aria-hidden="true" />
+                      <div className="mt-2 flex items-center justify-between gap-1.5 text-[0.68rem] font-semibold">
+                        <span className={["inline-flex items-center gap-1 rounded-[0.55rem] px-2 py-1", index === 0 ? "bg-piatto-terracotta text-white" : "bg-[#f3eadf] text-piatto-olive"].join(" ")}>
+                          <Star className={["size-3 fill-current", index === 0 ? "text-white" : "text-piatto-olive"].join(" ")} aria-hidden="true" />
                           {dish.rating}
                         </span>
-                        <span className="text-piatto-ink">{dish.price}</span>
+                        <span className="truncate text-piatto-muted">({dish.votes}) · {dish.time}</span>
+                        <span className="shrink-0 text-[0.82rem] font-semibold text-piatto-terracotta">{dish.price}</span>
                       </div>
                     </div>
                   </div>
