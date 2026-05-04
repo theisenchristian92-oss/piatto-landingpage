@@ -1,4 +1,4 @@
-import { Heart, Home, MapPin, Search, Star, UserRound } from "lucide-react";
+import { ArrowLeft, Heart, Home, MapPin, Search, Star, UserRound, Utensils } from "lucide-react";
 
 const schnitzelDishes = [
   {
@@ -66,24 +66,34 @@ export function AppMockup() {
           </div>
 
           <div className="flex min-h-0 flex-1 flex-col px-4 pb-3 pt-3">
-            <article className="overflow-hidden rounded-[1.55rem] border border-piatto-line bg-white shadow-[0_18px_36px_rgba(65,51,35,0.11)]">
-              <div className="relative h-[8.5rem] overflow-hidden bg-piatto-cream">
+            <article className="overflow-hidden rounded-[1.55rem] border border-[#e0cdbc] bg-[#fffaf3] shadow-[0_18px_38px_rgba(65,51,35,0.13)]">
+              <div className="relative h-[8.65rem] overflow-hidden bg-piatto-cream">
                 <img src={featuredDish.image} alt="" className="h-full w-full object-cover" loading="eager" />
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_44%,rgba(31,33,26,0.62))]" aria-hidden="true" />
-                <div className="absolute bottom-3 left-3 right-3 flex items-end justify-between gap-3">
-                  <div>
-                    <p className="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-white/82">Heute im Feed</p>
-                    <h2 className="mt-1 text-base font-semibold leading-tight text-white">{featuredDish.name}</h2>
-                  </div>
-                  <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-[#fffaf3] px-2.5 py-1 text-xs font-semibold text-piatto-olive shadow-sm">
-                    <Star className="size-3.5 fill-piatto-olive" aria-hidden="true" />
-                    {featuredDish.rating}
-                  </span>
-                </div>
+                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(38,28,18,0.08),rgba(38,28,18,0.28))]" aria-hidden="true" />
+                <button className="absolute left-3 top-3 flex size-9 items-center justify-center rounded-full bg-[#fffaf3]/94 text-piatto-olive shadow-[0_8px_18px_rgba(44,34,23,0.18)]" aria-label="Zurueck">
+                  <ArrowLeft className="size-4.5 stroke-[2.3]" aria-hidden="true" />
+                </button>
+                <button className="absolute right-3 top-3 flex size-9 items-center justify-center rounded-full bg-[#fffaf3]/94 text-piatto-olive shadow-[0_8px_18px_rgba(44,34,23,0.18)]" aria-label="Favorit speichern">
+                  <Heart className="size-4.5 stroke-[2.2]" aria-hidden="true" />
+                </button>
               </div>
-              <div className="flex items-center justify-between gap-3 px-3.5 py-2.5 text-xs font-semibold">
-                <span className="text-piatto-muted">{featuredDish.detail}</span>
-                <span className="text-piatto-ink">{featuredDish.price}</span>
+              <div className="relative -mt-5 rounded-t-[1.45rem] border-t border-[#f0e2d5] bg-[#fffaf3] px-3.5 pb-3.5 pt-3.5 shadow-[0_-8px_20px_rgba(65,51,35,0.08)]">
+                <h2 className="truncate text-[1.18rem] font-semibold leading-tight text-piatto-olive">{featuredDish.name}</h2>
+                <div className="mt-1.5 flex min-w-0 items-center gap-1.5 text-[0.72rem] font-medium text-piatto-muted">
+                  <Utensils className="size-3.5 shrink-0 text-piatto-terracotta" aria-hidden="true" />
+                  <span className="truncate">Piatto Beta</span>
+                  <span aria-hidden="true">•</span>
+                  <span>Mainz</span>
+                </div>
+                <div className="mt-3 flex items-center justify-between gap-2">
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-[#f3eadf] px-2.5 py-1.5 text-[0.72rem] font-semibold text-piatto-muted">
+                    <Star className="size-3.5 fill-piatto-terracotta text-piatto-terracotta" aria-hidden="true" />
+                    {featuredDish.rating}
+                    <span className="h-3 w-px bg-[#d7c7b8]" aria-hidden="true" />
+                    128
+                  </span>
+                  <span className="text-lg font-semibold tracking-[-0.01em] text-piatto-terracotta">{featuredDish.price}</span>
+                </div>
               </div>
             </article>
 
@@ -169,14 +179,13 @@ function PiattoPlateMark({ className }: { className?: string }) {
       <defs>
         <mask id="piatto-plate-bite">
           <rect width="64" height="64" fill="white" />
-          <circle cx="49.6" cy="11.7" r="6.4" fill="black" />
-          <circle cx="55.2" cy="19.2" r="6.1" fill="black" />
-          <circle cx="57.2" cy="27.2" r="5.4" fill="black" />
+          <circle cx="44.8" cy="20.1" r="7.8" fill="black" />
+          <circle cx="51.2" cy="27.2" r="5.6" fill="black" />
         </mask>
       </defs>
-      <circle cx="32" cy="32" r="27.8" fill="#fffaf3" />
-      <circle cx="32" cy="32" r="26.8" fill="none" stroke="#D96C3B" strokeWidth="7.6" mask="url(#piatto-plate-bite)" />
-      <path d="M20.9 31.2c2.7-8.5 9.4-14.2 18.1-15" fill="none" stroke="#55623B" strokeLinecap="round" strokeWidth="5.2" />
+      <rect width="64" height="64" rx="18" fill="#D96C3B" />
+      <circle cx="32" cy="34" r="18.6" fill="#F5E9DA" mask="url(#piatto-plate-bite)" />
+      <path d="M23.5 31.8c1.6-6.9 6.8-11.4 14.1-12.1" fill="none" stroke="#55623B" strokeLinecap="round" strokeWidth="4.8" />
     </svg>
   );
 }
