@@ -61,7 +61,14 @@ export function WaitlistJumpButton({
 }) {
   const handleClick = () => {
     window.dispatchEvent(new CustomEvent("piatto:set-waitlist-role", { detail: { role } }));
-    document.getElementById("waitlist")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    const waitlistSection = document.getElementById("waitlist");
+
+    if (waitlistSection) {
+      waitlistSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      return;
+    }
+
+    window.location.href = "/#waitlist";
   };
 
   const Icon = role === "restaurant" ? Store : ArrowRight;

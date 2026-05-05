@@ -5,11 +5,13 @@ import { ArrowRight, Mail, MessageSquare, ShieldCheck, Sparkles, Store, UsersRou
 import { ContactForm } from "@/components/contact/contact-form";
 import { Footer } from "@/components/landing/footer";
 import { PiattoLogo } from "@/components/landing/logo";
+import { metadataForPage } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = metadataForPage({
   title: "Kontakt | Piatto",
   description: "Kontakt zu Piatto für Gäste, Restaurants, Creator, Presse und Datenschutzanfragen.",
-};
+  path: "/kontakt",
+});
 
 const badges = ["Gäste", "Restaurants", "Creator", "Presse"];
 

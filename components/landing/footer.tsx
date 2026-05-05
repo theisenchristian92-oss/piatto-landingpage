@@ -12,6 +12,15 @@ export function Footer() {
         </div>
 
         <nav className="flex flex-wrap gap-4 text-sm font-semibold text-piatto-muted" aria-label="Footer">
+          <a href="/mainz" className="rounded-md transition hover:text-piatto-ink focus-ring">
+            Mainz
+          </a>
+          <a href="/dish-first-food-discovery" className="rounded-md transition hover:text-piatto-ink focus-ring">
+            Dish-first
+          </a>
+          <a href="/faq" className="rounded-md transition hover:text-piatto-ink focus-ring">
+            FAQ
+          </a>
           <a href="/datenschutz" className="rounded-md transition hover:text-piatto-ink focus-ring">
             Datenschutz
           </a>

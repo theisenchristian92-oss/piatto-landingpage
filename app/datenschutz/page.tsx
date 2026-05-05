@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PiattoLogo } from "@/components/landing/logo";
+import { metadataForPage } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = metadataForPage({
   title: "Datenschutzerklärung | Piatto",
   description: "Datenschutzhinweise für die Piatto Landingpage und Waitlist zur Beta.",
-};
+  path: "/datenschutz",
+});
 
 const sections = [
   { id: "kurzueberblick", label: "1. Kurzüberblick" },

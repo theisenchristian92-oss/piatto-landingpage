@@ -7,9 +7,9 @@ import { PiattoLogo } from "./logo";
 import { WaitlistJumpButton } from "./waitlist-form";
 
 const navItems = [
-  { label: "Idee", href: "#idee" },
-  { label: "Beta", href: "#mainz" },
-  { label: "Waitlist", href: "#waitlist" },
+  { label: "Idee", href: "/#idee" },
+  { label: "Beta", href: "/#mainz" },
+  { label: "Waitlist", href: "/#waitlist" },
 ];
 
 export function Header() {
@@ -18,7 +18,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-piatto-line/70 bg-[#fffaf3]/88 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-3.5 sm:px-8 lg:px-10">
-        <a href="#" aria-label="Piatto Startseite" className="focus-ring rounded-md">
+        <a href="/" aria-label="Piatto Startseite" className="focus-ring rounded-md">
           <PiattoLogo className="text-lg sm:text-xl" />
         </a>
 

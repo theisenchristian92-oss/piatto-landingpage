@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PiattoLogo } from "@/components/landing/logo";
+import { metadataForPage } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = metadataForPage({
   title: "Impressum | Piatto",
   description: "Impressum und Anbieterangaben fuer die Piatto Landingpage.",
-};
+  path: "/impressum",
+});
 
 function LegalSection({
   title,

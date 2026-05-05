@@ -202,15 +202,13 @@ function DishListCard({ dish, active }: { dish: Dish; active: boolean }) {
 function PiattoTabBar() {
   return (
     <nav aria-label="Piatto App Navigation" className="absolute inset-x-3 bottom-3 z-20">
+      <button className="absolute left-1/2 top-0 z-10 flex size-[3.5rem] -translate-x-1/2 -translate-y-[40%] items-center justify-center rounded-full bg-[#fffaf3] shadow-[0_9px_20px_rgba(65,51,35,0.12)] ring-[4px] ring-[#fffaf3]" aria-label="Piatto Feed">
+        <PiattoPlateMark className="size-[3.35rem]" />
+      </button>
       <div className="grid grid-cols-[1fr_1fr_3.85rem_1fr_1fr] items-center rounded-[1.2rem] border border-[#E6D7C5] bg-[#fffaf3]/97 px-2.5 py-2 text-center shadow-[0_12px_28px_rgba(65,51,35,0.13),inset_0_1px_0_rgba(255,255,255,0.9)] backdrop-blur">
         <TabItem icon={Home} label="Home" />
         <TabItem icon={Search} label="Suche" active />
-        <span className="relative flex min-w-0 justify-center self-stretch">
-          <span className="absolute left-1/2 top-1/2 flex size-[3.55rem] -translate-x-1/2 -translate-y-[63%] items-center justify-center rounded-full bg-[#fffaf3] shadow-[0_9px_20px_rgba(65,51,35,0.12)] ring-[4px] ring-[#fffaf3]">
-            <PiattoPlateMark className="size-[3.35rem]" />
-          </span>
-          <span className="sr-only">Piatto Feed</span>
-        </span>
+        <span aria-hidden="true" />
         <TabItem icon={Heart} label="Favoriten" />
         <TabItem icon={UserRound} label="Profil" />
       </div>
@@ -233,13 +231,14 @@ function PiattoPlateMark({ className }: { className?: string }) {
       <defs>
         <mask id="piatto-plate-bite">
           <rect width="64" height="64" fill="white" />
-          <circle cx="44.8" cy="20.1" r="7.8" fill="black" />
-          <circle cx="51.2" cy="27.2" r="5.6" fill="black" />
+          <circle cx="48.1" cy="11.5" r="6.7" fill="black" />
+          <circle cx="54.3" cy="19.5" r="6.2" fill="black" />
+          <circle cx="56.4" cy="27.9" r="5.4" fill="black" />
         </mask>
       </defs>
-      <rect width="64" height="64" rx="18" fill="#D96C3B" />
-      <circle cx="32" cy="34" r="18.6" fill="#F5E9DA" mask="url(#piatto-plate-bite)" />
-      <path d="M23.5 31.8c1.6-6.9 6.8-11.4 14.1-12.1" fill="none" stroke="#55623B" strokeLinecap="round" strokeWidth="4.8" />
+      <circle cx="32" cy="32" r="27.2" fill="#fffaf3" />
+      <circle cx="32" cy="32" r="25.9" fill="none" stroke="#D96C3B" strokeWidth="7.1" mask="url(#piatto-plate-bite)" />
+      <path d="M21 30.9c2.7-8.3 9.2-13.7 17.5-14.4" fill="none" stroke="#55623B" strokeLinecap="round" strokeWidth="5" />
     </svg>
   );
 }
