@@ -202,8 +202,8 @@ function DishListCard({ dish, active }: { dish: Dish; active: boolean }) {
 function PiattoTabBar() {
   return (
     <nav aria-label="Piatto App Navigation" className="absolute inset-x-3 bottom-3 z-20">
-      <button className="absolute left-1/2 top-0 z-10 flex size-[3.5rem] -translate-x-1/2 -translate-y-[40%] items-center justify-center rounded-full bg-[#fffaf3] shadow-[0_9px_20px_rgba(65,51,35,0.12)] ring-[4px] ring-[#fffaf3]" aria-label="Piatto Feed">
-        <PiattoPlateMark className="size-[3.35rem]" />
+      <button className="absolute left-1/2 top-0 z-10 flex size-[3.85rem] -translate-x-1/2 -translate-y-[43%] items-center justify-center rounded-full bg-transparent drop-shadow-[0_8px_12px_rgba(65,51,35,0.12)]" aria-label="Piatto Feed">
+        <PiattoPlateMark className="size-[3.75rem]" />
       </button>
       <div className="grid grid-cols-[1fr_1fr_3.85rem_1fr_1fr] items-center rounded-[1.2rem] border border-[#E6D7C5] bg-[#fffaf3]/97 px-2.5 py-2 text-center shadow-[0_12px_28px_rgba(65,51,35,0.13),inset_0_1px_0_rgba(255,255,255,0.9)] backdrop-blur">
         <TabItem icon={Home} label="Home" />
