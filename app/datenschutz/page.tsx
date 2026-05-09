@@ -163,8 +163,8 @@ export default function DatenschutzPage() {
             <Section id="verantwortlicher" title="2. Verantwortlicher">
               <AddressBlock>
                 <p className="font-semibold">Christian Theisen</p>
-                <p>Mainstraße 15</p>
-                <p>61440 Oberursel</p>
+                <p>In der Krummgewann 16</p>
+                <p>55597 Wöllstein</p>
                 <p>Deutschland</p>
               </AddressBlock>
               <p>
