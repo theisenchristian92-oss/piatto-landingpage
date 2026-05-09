@@ -55,8 +55,8 @@ export default function ImpressumPage() {
             <LegalSection title="Anbieter">
               <address className="not-italic">
                 <p className="font-semibold text-piatto-ink">Christian Theisen</p>
-                <p>Mainstraße 15</p>
-                <p>61440 Oberursel</p>
+                <p>In der Krummgewann 16</p>
+                <p>55597 Wöllstein</p>
                 <p>Deutschland</p>
               </address>
             </LegalSection>
@@ -76,8 +76,8 @@ export default function ImpressumPage() {
             <LegalSection title="Verantwortlich für Inhalte nach § 18 Abs. 2 MStV">
               <address className="not-italic">
                 <p className="font-semibold text-piatto-ink">Christian Theisen</p>
-                <p>Mainstraße 15</p>
-                <p>61440 Oberursel</p>
+                <p>In der Krummgewann 16</p>
+                <p>55597 Wöllstein</p>
                 <p>Deutschland</p>
               </address>
             </LegalSection>
