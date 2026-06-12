@@ -30,7 +30,7 @@ export function Footer() {
           <a href="/kontakt" className="rounded-md transition hover:text-piatto-ink focus-ring">
             Kontakt
           </a>
-          <a href="/login" className="rounded-md transition hover:text-piatto-ink focus-ring">
+          <a href="https://cockpit.piatto.world/login" className="rounded-md transition hover:text-piatto-ink focus-ring">
             Login
           </a>
         </nav>
