@@ -8,7 +8,7 @@ export const metadata: Metadata = metadataForPage({
   title: "Dish-first Food Discovery erklaert | Piatto",
   description:
     "Dish-first Food Discovery bedeutet: Nutzer entdecken konkrete Gerichte statt nur Restaurants. Piatto startet damit in Mainz.",
-  path: "/dish-first-food-discovery",
+  path: "/was-ist-dish-first",
 });
 
 export default function DishFirstPage() {
@@ -18,7 +18,7 @@ export default function DishFirstPage() {
         data={[
           breadcrumbSchema([
             { name: "Piatto", path: "/" },
-            { name: "Dish-first Food Discovery", path: "/dish-first-food-discovery" },
+            { name: "Dish-first Food Discovery", path: "/was-ist-dish-first" },
           ]),
           faqSchema(coreFaq),
         ]}

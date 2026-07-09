@@ -126,7 +126,7 @@ export const publicRoutes = [
   "/mainz",
   ...dishCategories.map((category) => `/mainz/${category.slug}`),
   "/beste-gerichte-mainz",
-  "/dish-first-food-discovery",
+  "/was-ist-dish-first",
   "/fuer-gaeste",
   "/fuer-restaurants",
   "/faq",

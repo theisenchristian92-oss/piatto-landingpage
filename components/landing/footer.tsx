@@ -15,7 +15,7 @@ export function Footer() {
           <a href="/mainz" className="rounded-md transition hover:text-piatto-ink focus-ring">
             Mainz
           </a>
-          <a href="/dish-first-food-discovery" className="rounded-md transition hover:text-piatto-ink focus-ring">
+          <a href="/was-ist-dish-first" className="rounded-md transition hover:text-piatto-ink focus-ring">
             Dish-first
           </a>
           <a href="/faq" className="rounded-md transition hover:text-piatto-ink focus-ring">
